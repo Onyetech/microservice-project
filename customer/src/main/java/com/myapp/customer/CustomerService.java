@@ -22,13 +22,14 @@ public class CustomerService {
                 .build();
 
         // todo: check if email valid
+
         // todo: check if email not taken
 
         // todo: save customer to the database
         customerRepository.saveAndFlush(customer);
 
         // todo: check if fraudster
-        FraudCheckResponse fraudCheckResponse  = restTemplate.getForObject(
+        FraudCheckResponse fraudCheckResponse  = restTemplate.getForObject (
                 "http://FRAUD/api/v1/fraud-check/{customerId}",
                 FraudCheckResponse.class,
                 customer.getId()
